@@ -1,77 +1,12 @@
-/*function game() {
-        
-    var p1score = 0;
-    var p2score = 0;
-    var round = 0;
-    var playerSelection;
-    var computerSelection;
-
-    function computerPlay () {
-        var rand = Math.floor(Math.random() * 3)
-
-        if (rand === 0) {
-            return "rock";
-        } else if (rand === 1) {
-            return "paper";
-        } else {
-            return "scissors";
-        }
-
-    }
-
-    function playRound (playerSelection, computerSelection) {
-        var p1 = playerSelection.toLowerCase();
-        var p2 = computerSelection;
-
-        if (p1 == null) {
-            return ("No player selection");
-        } else if (p2 == null) {
-            return ("No computer selection");
-        } else if (p1 === p2) {
-            return ("It's a tie!")
-        } else if (p1 === "rock") {
-            if (p2 === "paper") {
-                p2score++;
-                return ("You lose! Paper beats Rock");
-            } else if (p2 === "scissors") {
-                p1score++;
-                return ("You win! Rock beats Scissors");
-            }
-        } else if (p1 === "paper") {
-            if (p2 === "scissors") {
-                p2score++;
-                return ("You lose! Scissors beats Paper");
-            } else if (p2 === "rock") {
-                p1score++;
-                return ("You win! Paper beats Rock");
-            }
-        } else if (p1 === "scissors") {
-            if (p2 === "rock") {
-                p2score++;
-                return ("You lose! Rock beats Scissors");
-            } else if (p2 === "paper") {
-                p1score++;
-                return ("You win! Scissors beats Paper");
-            }
-        }                
-    }
-
-    if (p1score > p2score) {
-        return ("You win " + p1score + " to " + p2score + " !");
-    } else if (p2score > p1score) {
-        return ("Computer wins " + p2score + " to " + p1score + " !");
-    } else {
-        return ("It's a tie " + p2score + " to " + p1score + " !");
-    }   
-
-} */
+/* Script to run rock, paper, scissors (RPS) */
 
 var p1score = 0;
 var p2score = 0;
 var playerScore = document.querySelector("#playerScore");
 var computerScore = document.querySelector("#computerScore");
-var gameMessage = document.querySelector("#announcement");
 var scoreMessage = document.querySelector("#scoreMessage");
+
+/* Function to play a round of RPS with two inputs */
 
 function playRound (playerSelection, computerSelection) {
     var p1 = playerSelection.toLowerCase();
@@ -117,6 +52,8 @@ function playRound (playerSelection, computerSelection) {
     }                
 }
 
+/* Function uses random number to choose rock, paper, scissors */
+
 function computerPlay () {
     var rand = Math.floor(Math.random() * 3)
 
@@ -129,6 +66,9 @@ function computerPlay () {
     }
 
 }
+
+/* Function to play a game with user input. 
+Game displays a winner when one player reaches 5 points. */
 
 
 function playGame(e) {
@@ -146,6 +86,8 @@ function playGame(e) {
     }
 
 }
+
+/* Function playGame is run when a button is click */
 
 const buttons = document.querySelectorAll('.button');
 buttons.forEach((button) => {
